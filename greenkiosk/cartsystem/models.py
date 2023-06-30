@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 # Create your models here.
-class AddToCart (models.Model):
+class Cart (models.Model):
     name = models.CharField(max_length = 32)
     quantity = models.PositiveIntegerField()
     product_price = models.DecimalField(max_digits = 6, decimal_places = 2)
@@ -16,4 +16,4 @@ class AddToCart (models.Model):
     def __str__(self):
         return self.name
     class Meta:
-      verbose_name_plural = "Add to cart"
+      verbose_name_plural = "Cart"

@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     "logistics",
     "owner",
     "cartsystem",
-    "makepayment",
+    "payment",
+    "notification",
+    "rating",
+    "orders",
 ]
 
 MIDDLEWARE = [
