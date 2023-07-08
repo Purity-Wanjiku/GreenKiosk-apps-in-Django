@@ -1,8 +1,13 @@
 from django.db import models
 # modules (file that contains classes) inside django that contains models that allows us to create classes and inherit 
 # Create your models here.
+from owner.models import Vendor
+
+
 
 class Product (models.Model):
+    Vendor = models.ForeignKey(Vendor, on_delete = models.CASCADE)
+
     name = models.CharField(max_length = 32)
     description = models.TextField()
     image = models.ImageField()

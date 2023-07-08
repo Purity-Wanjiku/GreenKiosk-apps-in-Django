@@ -1,8 +1,10 @@
 from django.db import models
 from datetime import datetime
-
+from inventory.models import Product
 # Create your models here.
-class Cart (models.Model):
+class Cart (models.Model ) :
+
+    products = models.ManyToManyField(Product)
     name = models.CharField(max_length = 32)
     quantity = models.PositiveIntegerField()
     product_price = models.DecimalField(max_digits = 6, decimal_places = 2)
