@@ -15,7 +15,7 @@ class Cart (models.Model ):
     updated_at = models.DateTimeField(auto_now=True)
     
     
-    def __str__(self):
+    def __str__(self):  
         return self.name
     class Meta:
       verbose_name_plural = "Cart"

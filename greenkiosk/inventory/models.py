@@ -2,11 +2,12 @@ from django.db import models
 # modules (file that contains classes) inside django that contains models that allows us to create classes and inherit 
 # Create your models here.
 from owner.models import Vendor
-from cartsystem.models import Cart
+# from cartsystem.models import Cart
 
 
 class Product (models.Model):
-    Vendor = models.ForeignKey(Vendor, on_delete = models.CASCADE)
+    vendor = models.ForeignKey(Vendor, on_delete = models.CASCADE)
+    # product = models.ForeignKey(Cart, on_delete=models.PROTECT)
 
     name = models.CharField(max_length = 32)
     description = models.TextField()

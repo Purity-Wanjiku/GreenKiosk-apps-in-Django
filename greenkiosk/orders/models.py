@@ -20,4 +20,4 @@ class Order(models.Model):
     order_date = models.DateField(auto_now=True)
     
     def __str__(self):
-        return f"Order {self.order_number}"
+        return f"Order {self.order_number}" 
