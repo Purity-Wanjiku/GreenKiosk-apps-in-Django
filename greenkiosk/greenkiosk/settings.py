@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +28,7 @@ SECRET_KEY = "django-insecure-(nn8iy&(o67)_+3ywo22#o+gmt!mbl)!9c%gk0vvrfx0&s^qv%
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     "notification",
     "rating",
     "orders",
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
