@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table class="container">
+        <th class="heading">
+            <td>Title</td>
+            <td>Price</td>
+            <td>Status</td>
+            <td>Delivery Address</td>
+            <td>Delivery Details</td>
+            <td>Edit Delivery</td>
+        </th>
+
+        {%for item in delivery%}
+
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.delivery_address }}</td>
+            <td><a href="{% url 'delivery_detail_view' id=item.id %}">View Delivery Details</a> </td>
+            <td><a href="{% url 'delivery_edit_view' id=item.id %}">Edit delivery</a> </td>
+    </tr>
+      {% endfor %}
+
+</table>
+</body>
+</html>

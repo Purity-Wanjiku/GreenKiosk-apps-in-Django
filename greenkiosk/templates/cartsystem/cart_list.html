@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>Title</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Payment Method</td>
+            <td>Cart details</td>
+            <td>Edit cart</td>
+        </th>
+
+{%for cart in carts%}
+
+<tr>
+    <td>{{ cart.name }}</td>
+    <td>{{ cart.quantity }}</td>
+    <td>{{ cart.product_price }}</td>
+    <td>{{ cart.payment_method }}</td>
+    <td><a href="{% url 'cart_detail_view' id=cart.id %}">View Cart Details</a></td>
+    <td><a href="{% url 'cart_edit_view' id=cart.id %}">Edit Cart</a></td>
+
+</tr>
+  {% endfor %}
+    </table>
+</body>
+</html>

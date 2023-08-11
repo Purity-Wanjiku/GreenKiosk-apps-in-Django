@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table class="container">
+        <th class="heading">
+            <td>Order Number</td>
+            <td>Customer</td>
+            <td>Order Total</td>
+            <td>Delivery Location</td>
+            <td>Payment Option</td>
+            <td>Order Details</td>
+            <td>Edit Order</td>
+        </th>
+
+        {%for order in orders%}
+
+   
+        <tr>
+            <td>{{ order.number }}</td>
+            <td>{{ order.customer }}</td>
+            <td>{{ order.order_total }}</td>
+            <td>{{ order.delivery_location }}</td>
+            <td>{{ order.payment_options }}</td>
+            <td><a href="{% url 'order_detail_view' id=order.id %}">View Order Details</a> </td>
+            <td><a href="{% url 'order_edit_view' id=order.id %}">Edit Order</a> </td>
+    </tr>
+      {% endfor %}
+</table>
+
+
+</body>
+</html>

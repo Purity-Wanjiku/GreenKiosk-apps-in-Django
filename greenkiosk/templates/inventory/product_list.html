@@ -1,12 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'list.css' %}" type="text/css" />
 </head>
 <body>
-    <table>
+   
+
+    <table class="container">
         <th class="heading">
             <td>Title</td>
             <td>Description</td>
@@ -14,6 +18,7 @@
             <td>Product details</td>
             <td>Edit Product</td>
         </th>
+
         {%for product in products%}
 
         <tr>
@@ -21,7 +26,7 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td><a href="{% url 'product_detail_view' id=product.id %}">View Product Details</a> </td>
-                <td>  <a href="{% url 'product_edit_view' id=product.id %}">Edit Product</a> </td>
+                <td><a href="{% url 'product_edit_view' id=product.id %}">Edit Product</a> </td>
         </tr>
           {% endfor %}
     </table>

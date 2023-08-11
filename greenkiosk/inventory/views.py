@@ -17,10 +17,10 @@ def upload_product(request):
 def product_list(request):
     products = Product.objects.all()
 
-    return render(
-        request , "inventory/product_list.html",
-        {"products" : products}
+    return render( 
+       request , "inventory/product_list.html", {"products" : products}
     )
+
 
 def product_details (request, id):
     product = Product.objects.get( id = id)
@@ -28,6 +28,7 @@ def product_details (request, id):
     return render(
         request, "inventory/product_detail.html", {"product" : product}
     )
+
 
 def edit_product(request,id):
     product = Product.objects.get(id=id)

@@ -6,14 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-   <h3>Cart Upload Form</h3>
-   
-   <form method="POST" class="upload-form">
-      { % csrf_token % }
-      {{ form.as_p }}
+    
+  <div class="card">
+    <h4> {{item.name}}</h4>
+    <p> {{item.price}}</p>
+    <span> {{item.status}}</span>
+    <span> {{item.delivery_address}}</span>
+   </div>
 
-      <button type="submit">Add to Cart</button>
-
-   </form>
 </body>
 </html>
