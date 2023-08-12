@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table class="container">
+        <th class="heading">
+            <td>Title</td>
+            <td>Email</td>
+            <td>Store Name</td>
+            <td>Contact</td>
+            <td>Vendor details</td>
+            <td>Edit Vendor</td>
+        </th>
+
+        {%for vendor in vendors%}
+
+        <tr>
+            <td>{{ vendor.name }}</td>
+            <td>{{ vendor.email }}</td>
+            <td>{{ vendor.storename }}</td>
+            <td>{{ vendor.contact }}</td>
+            <td><a href="{% url 'vendor_detail_view' id=vendor.id %}">View Vendor Details</a> </td>
+            <td><a href="{% url 'vendor_edit_view' id=vendor.id %}">Edit Vendor</a> </td>
+    </tr>
+      {% endfor %}
+</table>
+
+</body>
+</html>
