@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .heading {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        .heading td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e0e0e0;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Additional style for order details and edit links */
+        .order-links a {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    
     <table class="container">
-        <th class="heading">
+        <tr class="heading">
             <td>Order Number</td>
             <td>Customer</td>
             <td>Order Total</td>
@@ -16,23 +53,19 @@
             <td>Payment Option</td>
             <td>Order Details</td>
             <td>Edit Order</td>
-        </th>
+        </tr>
 
-        {%for order in orders%}
-
-   
+        {% for order in orders %}
         <tr>
             <td>{{ order.number }}</td>
             <td>{{ order.customer }}</td>
             <td>{{ order.order_total }}</td>
             <td>{{ order.delivery_location }}</td>
             <td>{{ order.payment_options }}</td>
-            <td><a href="{% url 'order_detail_view' id=order.id %}">View Order Details</a> </td>
-            <td><a href="{% url 'order_edit_view' id=order.id %}">Edit Order</a> </td>
-    </tr>
-      {% endfor %}
-</table>
-
-
+            <td class="order-links"><a href="{% url 'order_detail_view' id=order.id %}">View Order Details</a></td>
+            <td class="order-links"><a href="{% url 'order_edit_view' id=order.id %}">Edit Order</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <ul>
+        {% for product in products %}
+        <li>{{ product.name }} - {{ product.description }} - ${{ product.price }}</li>
+        {% empty %}
+        <p>No products found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

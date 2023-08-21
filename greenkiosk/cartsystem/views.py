@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import CartUploadForm
 from cartsystem.models import Cart
+from orders.models import Order
+from inventory.models import Product
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def upload_cart(request):
@@ -14,10 +18,7 @@ def upload_cart(request):
 
 def cart_list(request):
     carts = Cart.objects.all()
-
-    return render(
-        request , "cartsystem/cart_list.html" , {"carts" : carts}
-    )
+    return render( request , "cartsystem/cart_list.html" , {"carts" : carts})
 
 def cart_details(request, id):
     cart = Cart.objects.get(id = id)
@@ -39,4 +40,4 @@ def edit_cart(request,id):
        form = CartUploadForm(instance=cart)
 
     return render (request, "inventory/cart_edit.html", {"form":form})
-
+        

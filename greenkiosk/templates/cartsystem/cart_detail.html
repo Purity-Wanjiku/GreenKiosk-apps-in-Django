@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<style>
+  .container{
+    border: solid black;
+  }
+
+</style>
+
 </head>
-<body>
-    
-  <div>
-    <h4>{{cart.name}}</h4>
-    <p>{{cart.quantity}}</p>
-    <span>{{cart.product_price}}</span>
-    <span>{{cart.payment_method}}</span>
+<body style="background-color: #f0f0f0; margin: 0; padding: 20px; font-family: Arial, sans-serif; " >
 
-
+  <div class="container" style="background-color: #e0ffe0; border-radius: 10px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <h4 style="color: #008000; margin: 0;">{{cart.name}}</h4>
+    <p style="color: #333; margin: 10px 0 5px 0;">{{cart.quantity}}</p>
+    <span style="color: #008000; font-weight: bold;">{{cart.product_price}}</span>
+    <span style="color: #333;">{{cart.payment_method}}</span>
   </div>
 
 </body>

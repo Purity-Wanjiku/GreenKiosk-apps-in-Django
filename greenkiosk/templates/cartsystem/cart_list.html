@@ -3,31 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cart Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #008000;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        a {
+            text-decoration: none;
+            color: #008000;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #005800;
+        }
+    </style>
 </head>
 <body>
     <table>
-        <th>
-            <td>Title</td>
-            <td>Quantity</td>
-            <td>Price</td>
-            <td>Payment Method</td>
-            <td>Cart details</td>
-            <td>Edit cart</td>
-        </th>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Payment Method</th>
+            <th>Cart Details</th>
+            <th>Edit Cart</th>
+        </tr>
 
-{%for cart in carts%}
-
-<tr>
-    <td>{{ cart.name }}</td>
-    <td>{{ cart.quantity }}</td>
-    <td>{{ cart.product_price }}</td>
-    <td>{{ cart.payment_method }}</td>
-    <td><a href="{% url 'cart_detail_view' id=cart.id %}">View Cart Details</a></td>
-    <td><a href="{% url 'cart_edit_view' id=cart.id %}">Edit Cart</a></td>
-
-</tr>
-  {% endfor %}
+        {% for cart in carts %}
+        <tr>
+            <td>{{ cart.name }}</td>
+            <td>{{ cart.quantity }}</td>
+            <td>{{ cart.product_price }}</td>
+            <td>{{ cart.payment_method }}</td>
+            <td><a href="{% url 'product_detail_view' id=cart.id %}">View Cart Details</a></td>
+            <td><a href="{% url 'cart_edit_view' id=cart.id %}">Edit Cart</a></td>
+        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

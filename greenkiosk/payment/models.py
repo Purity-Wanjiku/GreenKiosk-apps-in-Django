@@ -5,7 +5,6 @@ from datetime import datetime
 class Payment(models.Model):
     name = models.CharField(max_length = 32)
     payment_method = models.CharField(max_length = 32)
-    transaction_id = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     
     created_at = models.DateTimeField(default=datetime(2023, 6, 18, 16, 35))

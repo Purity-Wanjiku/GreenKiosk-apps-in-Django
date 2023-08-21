@@ -15,7 +15,6 @@ class Order(models.Model):
     order_total = models.IntegerField()
     customer = models.CharField(max_length=32)
     delivery_location = models.CharField(max_length=100)
-    product_id = models.IntegerField()
     payment_options = models.CharField(max_length=100)
     order_date = models.DateField(auto_now=True)
     

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles for the navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 997 !important;
+
+            background-color: #001a08; /* Light gray background color */
+        }
+
+        .navbar-brand {
+            font-size: 24px; /* Brand text size */
+            color: #007bff; /* Brand text color */
+            font-weight: bold; /* Brand text weight */
+        }
+
+        .navbar-toggler {
+            border-color: #007bff; /* Toggler button border color */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #f8f9fa;
+            /* Toggler icon color */
+        }
+
+        .navbar-nav .nav-link {
+            color: #faf6f6; /* Link text color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff; /* Link text color on hover */
+        }
+
+        .dropdown-menu {
+            background-color: #f8f9fa; /* Dropdown menu background color */
+        }
+
+        .dropdown-item {
+            color: #fdfafa; /* Dropdown item text color */
+        }
+
+        .dropdown-item:hover {
+            background-color: #007bff; /* Dropdown item background color on hover */
+            color: #fff; /* Dropdown item text color on hover */
+        }
+
+        .form-control {
+            border-color: #007bff; /* Input field border color */
+        }
+
+        .btn-outline-success {
+            color: #28a745; /* Search button text color */
+            border-color: #28a745; /* Search button border color */
+        }
+
+        .btn-outline-success:hover {
+            color: #fff; /* Search button text color on hover */
+            background-color: #28a745; /* Search button background color on hover */
+            border-color: #28a745; /* Search button border color on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand"  href="#" style="color: white; ">Mama's Market</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" style="color: white; ">Categories <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" style="color: white; ">Products</a>
+            </li>
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0" id="search-form">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="border: none;" id="search-input" >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
+          </form>
+          <div id="search-results"> </div>
+
+          <a href=" {% url 'sign_up_view' %} "><button style="padding: 10px 10px; border: none;">Sign-Up</button></a>
+
+        </div>
+      </nav>
+      
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#search-button").on("click", function() {
+                var query = $("#search-input").val();
+                if (query) {
+                    $.ajax({
+                        url: "{% url 'search_view' %}",
+                        data: { query: query },
+                        success: function(response) {
+                            $("#search-results").html(response);
+                        }
+                    });
+                }
+            });
+        });
+        </script>
+
+</body>
+</html>

@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+#image{
+  width: 30%;
+  border-radius: 15px;
+}
+h4{
+  font-size: 30px;
+}
+.card{
+  text-align: center;
+  font-size: 20px;
+}
+button{
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: white;
+}
+
+    </style>
 </head>
 <body>
   
   <div class="card">
    <h4> {{product.name}}</h4>
-   <img src="{{product.image.url}}"/>
+   <img src="{{product.images.url}}" id="image"/>
    <p> {{product.description}}</p>
-   <span> {{product.price}}</span>
-   <button> Add to cart</button>
+   <p> {{product.price}}</p>
+   <a href="{% url 'cart_list_view' %}"><button> Add to cart</button></a>
   </div>
   
 </body>
