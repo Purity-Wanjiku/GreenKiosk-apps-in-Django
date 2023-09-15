@@ -35,6 +35,8 @@ SECRET_KEY = "django-insecure-(nn8iy&(o67)_+3ywo22#o+gmt!mbl)!9c%gk0vvrfx0&s^qv%
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# http://localhost:8000/your_app/?__debug__=1
+
 
 
 
@@ -47,8 +49,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "inventory",
     "usermanagement",
+    "items",
     "logistics",
     "owner",
     "cartsystem",
@@ -56,7 +58,9 @@ INSTALLED_APPS = [
     "notification",
     "rating",
     "orders",
-    'rest_framework',
+    "rest_framework",
+
+   
 ]
 
 MIDDLEWARE = [
@@ -67,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = "greenkiosk.urls"
@@ -122,6 +127,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'auth.User'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -148,3 +155,10 @@ STATICFILES_DIRS = [
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Configure Internal IPs to ensure that the toolbar is only accessible by trusted IPs
+INTERNAL_IPS = [
+     '127.0.0.1', 
+]
+

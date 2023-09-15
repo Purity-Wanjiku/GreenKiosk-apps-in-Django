@@ -21,15 +21,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("inventory/", include ( "inventory.urls")), 
+    path("inventory/", include ( "items.urls")), 
     path ("cartsystem/", include ( "cartsystem.urls")),
-    path ( 'logistics/', include ('logistics.urls')),
+    path ('logistics/', include ('logistics.urls')),
     path('orders/', include('orders.urls')),
     path('owner/', include('owner.urls')),
     path('usermanagement/', include('usermanagement.urls')),
     path('payment/', include('payment.urls')),
+    path('api/', include('api.urls')),
 ]
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

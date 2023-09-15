@@ -33,7 +33,7 @@ button{
    <h4> {{product.name}}</h4>
    <img src="{{product.images.url}}" id="image"/>
    <p> {{product.description}}</p>
-   <p> {{product.price}}</p>
+   <p> {{product.price}}</p><span>{{count_price}}</span>
    <a href="{% url 'cart_list_view' %}"><button> Add to cart</button></a>
   </div>
   
